@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
     before_action :set_project, only: [:edit, :show, :update, :destroy]
+    has_many :tasks
+    
     def new
         @project = Project.new
     end
