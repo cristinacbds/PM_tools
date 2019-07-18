@@ -1,3 +1,4 @@
 class Task < ApplicationRecord
-    validates :title, presence: true, uniqueness: { scope: :project }
+    validates :title, presence: true
+    belongs_to :project
 end
