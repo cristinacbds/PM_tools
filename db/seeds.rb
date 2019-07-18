@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Project.delete_all
 Task.delete_all
+Project.delete_all
 
 10.times do
     Project.create(
@@ -17,9 +17,11 @@ Task.delete_all
     )
 end
 
-10.times do
-    Task.create(
+2.times do
+    Project.all.each do |project|
+        project.tasks.create(
         title: Faker::Dessert.flavor,
         due_date: Faker::Date.forward(30)
     )
+    end
 end
