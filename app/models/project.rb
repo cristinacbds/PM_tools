@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
     validates :title, presence: true, uniqueness: true
     validate :due_date, :due_date_grater_than_today?
+    belongs_to :user
     # has_many :tasks, dependent: :destroy
 
     def due_date_grater_than_today?
